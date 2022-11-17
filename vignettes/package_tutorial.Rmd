@@ -20,6 +20,11 @@ sum(1,2)
 
 ## Installation Instructions
 
+You will need to download data to use this package. Here is the code you can use to do this. 
+```{r echo=TRUE}
+download.file("https://raw.githubusercontent.com/tannerbahm/bahm_pkg/master/data/surveys.csv", destfile = "/cloud/project/data/surveys.csv")
+```
+
 ```{r eval=FALSE, include=TRUE}
 install.packages("phytools")
 ```
