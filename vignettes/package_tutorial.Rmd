@@ -1,0 +1,43 @@
+---
+title: "Package Tutorial"
+author: "Tanner Bahm"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# An Introduction to My R Package
+### smol
+My R package is *super* cool and it does *__three__* things.
+new line!!!! except it doesn't 
+
+need a space between to get new paragraph
+
+embed R code use three tick marks and curly brace
+
+```{r}
+sum(1,2)
+```
+
+## Installation Instructions
+
+```{r eval=FALSE, include=TRUE}
+install.packages("phytools")
+```
+
+
+text can be included anywhere in doc, there is no limit!
+but... text in a code chunk must be commented (# before text)
+
+```{r}
+sum(1,2)
+# like dis
+```
+
+to embed images
+![Caption](path/to/image)
+
+has to be uploaded to R first
+
+can't use JPEG
+
+it's also possible to inlcude [hyperlinks](website.url)

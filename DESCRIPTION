@@ -1,0 +1,17 @@
+Package: argh
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("Tanner", "Bahm", , "tanner.bahm@selu.edu", role = c("aut", "cre"))
+Description: This R package can be used for data cleaning, data visulaization, and data analysis through linear models.
+License: MIT + file LICENSE
+Depends: 
+  R(>= 3.0)
+Imports:
+  tidyverse
+Suggests:
+  knitr, rmarkdown
+VignetteBuilder: knitr
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
