@@ -88,14 +88,62 @@ Bahm</h4>
 data cleaning purposes, data visualization via box plot, and statistical
 analysis using a linear model.</p>
 <div class="section level3">
+<h3 id="download-the-package">Download the Package<a class="anchor" aria-label="anchor" href="#download-the-package"></a>
+</h3>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_gitgub</span><span class="op">(</span><span class="st">"tannerbahm/bahm_pkg"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">argh</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
 <h3 id="installation-instructions">Installation Instructions<a class="anchor" aria-label="anchor" href="#installation-instructions"></a>
 </h3>
 <p>You will need to download data to use this package. Here is the code
 you can use to do this.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tannerbahm/bahm_pkg/master/data/surveys.csv"</span>, destfile <span class="op">=</span> <span class="st">"/cloud/project/data/surveys.csv"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tannerbahm/bahm_pkg/master/data/surveys.csv"</span>, destfile <span class="op">=</span> <span class="st">"/cloud/project/data/surveys.csv"</span><span class="op">)</span></span></code></pre></div>
+<p>You will need to download tidyverse to use this package. Here is the
+code if you do not already have tidyverse.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="examples-of-the-functions-included">Examples of the Functions Included<a class="anchor" aria-label="anchor" href="#examples-of-the-functions-included"></a>
+</h3>
+<p>First, we will want to remove any NA values in the data set. We will
+use this function to do so:</p>
+<p>clean_data &lt;- function(filepath){ raw_data &lt;-
+read_csv(filepath) data_clean &lt;- raw_data %&gt;% na.omit() ma if
+(sum(is.na(data_clean)) == 0) return(data_clean) else{ print(“nas
+present :(”) } }</p>
+<p>We’ll save the surveys data set to a variable.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">surveys</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="st">"/cloud/project/data/surveys.csv"</span><span class="op">)</span></span></code></pre></div>
+<p>Now we will remove the NA values and save that to a variable as
+well.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">surveys_clean</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/clean_data.html">clean_data</a></span><span class="op">(</span><span class="st">"/cloud/project/data/surveys.csv"</span><span class="op">)</span></span></code></pre></div>
+<p>You can view the clean data by using this code:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/View.html" class="external-link">View</a></span><span class="op">(</span><span class="va">surveys_clean</span><span class="op">)</span></span></code></pre></div>
+<p>Next, we will use the box plot function to visualize the data. This
+is the function we will use:</p>
+<p>make_boxplot &lt;- function(filepath){ boxplot_data &lt;-
+read_csv(filepath) make_plot &lt;- boxplot_data boxplot &lt;-
+ggplot(data = make_plot, mapping = aes(x = species_id, y = weight)) +
+geom_boxplot() return(boxplot) }</p>
+<p>We’ll use the file path to the surveys data set.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/make_boxplot.html">make_boxplot</a></span><span class="op">(</span><span class="st">"/cloud/project/data/surveys.csv"</span><span class="op">)</span></span></code></pre></div>
+<p>The last function in my R package is a linear model summary. This is
+the function:</p>
+<p>lin_model &lt;- function(filepath){ lin_data_raw &lt;-
+read_csv(filepath) lin_data &lt;- lin_data_raw model_fit &lt;-
+lm(hindfoot_length ~ weight, data = lin_data) return(summary(model_fit))
+}</p>
+<p>Once again, we’ll use the file path to the data set.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">lin_model</span><span class="op">(</span><span class="st">"/cloud/project/data/surveys.csv"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </div>
