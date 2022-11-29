@@ -6,43 +6,89 @@ output: html_document
 ---
 
 # An Introduction to My R Package
-### smol
-My R package is *super* cool and it does *__three__* things.
-new line!!!! except it doesn't 
 
-need a space between to get new paragraph
+My R package contains three different functions and can be used for data cleaning purposes, data visualization via box plot, and statistical analysis using a linear model. 
 
-embed R code use three tick marks and curly brace
+## Download the Package
 
-```{r}
-sum(1,2)
+```{r, eval=FALSE}
+remotes::install_gitgub("tannerbahm/bahm_pkg")
+library(argh)
 ```
 
 ## Installation Instructions
 
 You will need to download data to use this package. Here is the code you can use to do this. 
-```{r echo=TRUE}
+```{r, eval=FALSE}
 download.file("https://raw.githubusercontent.com/tannerbahm/bahm_pkg/master/data/surveys.csv", destfile = "/cloud/project/data/surveys.csv")
 ```
 
-```{r eval=FALSE, include=TRUE}
-install.packages("phytools")
+You will need to download tidyverse to use this package. Here is the code if you do not already have tidyverse.
+
+```{r eval=FALSE}
+install.packages("tidyverse")
+library(tidyverse)
 ```
 
+## Examples of the Functions Included
 
-text can be included anywhere in doc, there is no limit!
-but... text in a code chunk must be commented (# before text)
+First, we will want to remove any NA values in the data set. We will use this function to do so:
 
-```{r}
-sum(1,2)
-# like dis
+clean_data <- function(filepath){
+  raw_data <- read_csv(filepath)
+  data_clean <- raw_data %>% 
+    na.omit()
+ma  if (sum(is.na(data_clean)) == 0)
+    return(data_clean)
+  else{
+    print("nas present :(")
+  }
+}
+
+We'll save the surveys data set to a variable.
+
+```{r, eval=FALSE}
+surveys <- read_csv("/cloud/project/data/surveys.csv")
 ```
 
-to embed images
-![Caption](path/to/image)
+Now we will remove the NA values and save that to a variable as well. 
 
-has to be uploaded to R first
+```{r, eval=FALSE}
+surveys_clean <- clean_data("/cloud/project/data/surveys.csv")
+```
 
-can't use JPEG
+You can view the clean data by using this code:
+```{r, eval=FALSE}
+View(surveys_clean)
+```
 
-it's also possible to inlcude [hyperlinks](website.url)
+Next, we will use the box plot function to visualize the data. This is the function we will use:
+
+make_boxplot <- function(filepath){
+  boxplot_data <- read_csv(filepath)
+  make_plot <- boxplot_data
+  boxplot <- ggplot(data = make_plot, mapping = aes(x = species_id, y = weight)) + geom_boxplot()
+  return(boxplot)
+}
+
+We'll use the file path to the surveys data set.
+
+```{r, eval=FALSE}
+make_boxplot("/cloud/project/data/surveys.csv")
+```
+
+The last function in my R package is a linear model summary. This is the function:
+
+lin_model <- function(filepath){
+  lin_data_raw <- read_csv(filepath)
+  lin_data <- lin_data_raw
+  model_fit <- lm(hindfoot_length ~ weight, data = lin_data)
+  return(summary(model_fit))
+}
+
+Once again, we'll use the file path to the data set.
+
+```{r, eval=FALSE}
+lin_model("/cloud/project/data/surveys.csv")
+```
+

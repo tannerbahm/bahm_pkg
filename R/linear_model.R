@@ -1,17 +1,16 @@
 
-#'
+#'Create a linear model and return the summary
 
 #'@param filepath - directory to data
 #'
-#'@return 
-#'
+#'@return summary of linear model
 #'
 #'@examples
-#'
-#'
+#'lin_model("/cloud/project/data/surveys.csv")
+
 lin_model <- function(filepath){
   lin_data_raw <- read_csv(filepath)
-  lin_data <- line_data_raw
-  model_fit <- lm(temperature ~ salinity_ppt, data = lin_data)
+  lin_data <- lin_data_raw
+  model_fit <- lm(hindfoot_length ~ weight, data = lin_data)
   return(summary(model_fit))
 }

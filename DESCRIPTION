@@ -1,5 +1,5 @@
 Package: argh
-Title: What the Package Does (One Line, Title Case)
+Title: R Package for NA Removal, Data Visualization, and Data Analysis
 Version: 0.0.0.9000
 Authors@R: 
     person("Tanner", "Bahm", , "tanner.bahm@selu.edu", role = c("aut", "cre"))

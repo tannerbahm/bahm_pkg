@@ -72,7 +72,7 @@
                         <h4 data-toc-skip class="author">Tanner
 Bahm</h4>
             
-            <h4 data-toc-skip class="date">2022-11-17</h4>
+            <h4 data-toc-skip class="date">2022-11-29</h4>
       
       
       <div class="hidden name"><code>package_tutorial.Rmd</code></div>
@@ -84,38 +84,18 @@ Bahm</h4>
 <div class="section level2">
 <h2 id="an-introduction-to-my-r-package">An Introduction to My R Package<a class="anchor" aria-label="anchor" href="#an-introduction-to-my-r-package"></a>
 </h2>
-<div class="section level4">
-<h4 id="smol">smol<a class="anchor" aria-label="anchor" href="#smol"></a>
-</h4>
-<p>My R package is <em>super</em> cool and it does
-<em><strong>three</strong></em> things. new line!!!! except it
-doesn’t</p>
-<p>need a space between to get new paragraph</p>
-<p>embed R code use three tick marks and curly brace</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 3</span></span></code></pre>
-</div>
+<p>My R package contains three different functions and can be used for
+data cleaning purposes, data visualization via box plot, and statistical
+analysis using a linear model.</p>
 <div class="section level3">
 <h3 id="installation-instructions">Installation Instructions<a class="anchor" aria-label="anchor" href="#installation-instructions"></a>
 </h3>
 <p>You will need to download data to use this package. Here is the code
 you can use to do this.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tannerbahm/bahm_pkg/master/data/surveys.csv"</span>, destfile <span class="op">=</span> <span class="st">"/cloud/project/data/surveys.csv"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"phytools"</span><span class="op">)</span></span></code></pre></div>
-<p>text can be included anywhere in doc, there is no limit! but… text in
-a code chunk must be commented (# before text)</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 3</span></span></code></pre>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># like dis</span></span></code></pre></div>
-<p>to embed images <img src="path/to/image" alt="Caption"></p>
-<p>has to be uploaded to R first</p>
-<p>can’t use JPEG</p>
-<p>it’s also possible to inlcude <a href="website.url">hyperlinks</a></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </div>

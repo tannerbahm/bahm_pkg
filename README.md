@@ -5,35 +5,32 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 ## Introduction
-Short description of R package
-  what does it do
-  what type of data is it meant to work with
-  what are the major outputs of your R package
-
-This R package is meant to be used to clean data, create visualizations of data, and to 
- This package has functions to remove 
+This R package is to be used with the surveys data set we have used over the semester. It has three functions. One is meant for data cleaning/NA removal, one is for data visualization using a box plot, and the last function is for data analysis using a linear model summary. 
 
 ## Installation
-are there any R packages yours depends on? 
-eg: need tidyverse to remove nas
-need tidyverse for data cleaning functionality
 
+To download the package:
+
+```{r}
+remotes::install_gitgub("tannerbahm/bahm_pkg")
+library(argh)
+```
+z
+You'll need tidyverse to use this package.
 ```{r}
 install.packages("tidyverse")
 
 ```
 
 ## Usage examples
-explain to someone who wants to use this r package how it works
-provide some context for why someone might want to use this R package
-ex: multiplication is a fundamental mathematical operation and if a user wanted to do that in this package, they would do:
-insert R chunk
+
+You might want to utilize this R package to manipulate the data in the surveys data set that has been used throughout the semester for this class. 
+If you wanted to remove NA values from the surveys data set or your own data set you could use this code:
 
 ```{r}
-
+clean_data(filepath)
 ```
+

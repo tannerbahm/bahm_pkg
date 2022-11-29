@@ -1,9 +1,11 @@
-#'Create a boxplot with the variable species_id and weight
+#'Create a box plot with the variable species_id and weight
 
 #'@param filepath - the directory to data
 #'
 #'@return Boxplot of species_id versus weight 
 #'
+#'@examples
+#'make_boxplot("/cloud/project/data/surveys.csv")
 
 make_boxplot <- function(filepath){
   boxplot_data <- read_csv(filepath)
