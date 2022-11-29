@@ -1,0 +1,3 @@
+Overall good work, Tanner. The only thing I could see posing a problem for you during your project 
+is the incomplete documentation on lin_model. R currently isn't picking that up as a function because 
+the documents aren't complete. Once you've finished the header for that one, it should be A-OK.
